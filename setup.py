@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="ai-robot-position-finder",
-    version="0.0.2",
+    version="0.0.3",
     author="Arun CS",
     author_email="aruncs31s@proton.com",
     description="Python app to control the 16 Servo positions",
