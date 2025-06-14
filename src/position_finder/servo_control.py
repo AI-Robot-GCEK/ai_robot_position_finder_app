@@ -12,11 +12,11 @@ URL = f"http://{config.get("ip")}/{API_ENDPOINT}"
 def set_servo(servo_id, value):
     req_params= {
 		"id": servo_id,
-		"position": value
+		"angle": value
     }
     url = f"{URL}"  
     # TODO: Remove after testing
-    # response = requests.get(URL, params=req_params)
+    response = requests.get(URL, params=req_params)
 
-    # print(f"Response: {response.text}")
-    print(f"servo {servo_id} to value {value} ")
+    print(f"Response: {response.text}")
+    print(f"servo {servo_id} to angle {value} ")
