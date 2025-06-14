@@ -15,6 +15,8 @@ setup(
     install_requires=[
         "requests",
         "click", 
+        "ai-robot-position-scraper",
+        
     ],
     entry_points={
         "console_scripts": [
