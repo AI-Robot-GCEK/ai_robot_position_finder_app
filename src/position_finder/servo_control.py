@@ -5,18 +5,22 @@ config_file = "config.json"
 with open(config_file, "r") as f:
     config = json.load(f)
 
-API_ENDPOINT = config.get("control_api")
+api_endpoint = config.get("control_api")
 
-URL = f"http://{config.get("ip")}/{API_ENDPOINT}"
+url = f"http://{config.get("ip")}/{api_endpoint}"
 
 def set_servo(servo_id, value):
+    global url
     req_params= {
 		"id": servo_id,
 		"angle": value
     }
-    url = f"{URL}"  
     # TODO: Remove after testing
-    response = requests.get(URL, params=req_params)
-
+    try:
+      response = requests.get(url, params=req_params) 
+    except requests.exceptions.RequestException as e:
+        print(f"Error connecting to the server: {e}")
+        response = None
+        return
     print(f"Response: {response.text}")
     print(f"servo {servo_id} to angle {value} ")

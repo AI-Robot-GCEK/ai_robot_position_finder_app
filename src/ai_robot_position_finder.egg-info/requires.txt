@@ -1,3 +1,0 @@
-requests
-click
-ai-robot-position-scraper

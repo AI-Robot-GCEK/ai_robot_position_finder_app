@@ -2,5 +2,5 @@
     "initial_position_url": "https://github.com/AI-Robot-GCEK/robo-initial-positions/blob/main/src/initial-positions.h",
     "servo_count": 16,
     "control_api": "setServo",
-    "ip": ""
+    "ip": "127.0.0.1:5000"
 }

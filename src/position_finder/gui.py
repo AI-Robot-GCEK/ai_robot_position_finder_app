@@ -9,7 +9,7 @@ def create_servo_slider(frame, servo_id, initial_value,slider_label):
     def on_move(val):
         # set_position when slider moves 
         # TODO: check if this creates too many requests
-        set_servo(servo_id, int(float(val)))
+        set_servo(servo_id, int(val))
 
     slider = tk.Scale(
         frame,
@@ -23,7 +23,7 @@ def create_servo_slider(frame, servo_id, initial_value,slider_label):
     slider.set(initial_value) 
     return slider
 
-def gui_main(SERVO_COUNT, initial_angles,servo_values,servo_names):
+def gui_main(SERVO_COUNT, initial_angles,servo_values,servo_names,esp_ip):
     global ip_entry  
     root = tk.Tk()
     root.title("AI-Robot-PFv0.1")
@@ -35,8 +35,10 @@ def gui_main(SERVO_COUNT, initial_angles,servo_values,servo_names):
     ip_label.grid(row=0, column=0, padx=5)
     ip_entry = tk.Entry(frame)
     ip_entry.grid(row=0, column=1, padx=5)
+    # set initial value of ip from the config 
     ip_button = tk.Button(frame, text="Set IP", command=lambda: update_ip(ip_entry.get()))
     ip_button.grid(row=0, column=2, padx=5)
+    ip_entry.insert(0, esp_ip)
 
     # Name entry and save button
     name_label = tk.Label(frame, text="Name:")
